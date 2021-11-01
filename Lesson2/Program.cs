@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 
 namespace Lesson2
 {
@@ -8,117 +9,151 @@ namespace Lesson2
     {
         static void Main(string[] args)
         {
-            MyClass obj1;
+            //MyClass obj1;
 
-            obj1 = new(10);
-            Console.WriteLine(obj1);
+            //obj1 = new(10);
+            //Console.WriteLine(obj1);
 
-            obj1.F1 = 10;
-            Console.WriteLine(obj1.F1);
+            //obj1.F1 = 10;
+            //Console.WriteLine(obj1.F1);
 
-            var obj2 = new MyClass() { F1 = 7 };
+            //var obj2 = new MyClass() { F1 = 7 };
 
-            MyStruct str1;
-            //str1.F1 = 10;
+            //MyStruct str1;
+            ////str1.F1 = 10;
 
-            //Console.WriteLine(str1);
+            ////Console.WriteLine(str1);
 
-            Console.WriteLine("Hello World!");
+            //Console.WriteLine("Hello World!");
 
-            int[] arr = new int[5];
-            foreach (int i in arr)
-                Console.Write(" " + i);
-            Console.WriteLine();
+            //int[] arr = new int[5];
+            //foreach (int i in arr)
+            //    Console.Write(" " + i);
+            //Console.WriteLine();
 
-            int[] arr2 = { 1, 2, 3, 4, 5, 6 };
-            arr = arr2;
+            //int[] arr2 = { 1, 2, 3, 4, 5, 6 };
+            //arr = arr2;
 
-            int[,] matrix = new int[4, 6];
+            //int[,] matrix = new int[4, 6];
 
-            int[,] matrix2 =
-            {
-                { 1, 2, 3 },
-                { 4, 5, 8 }
-            };
+            //int[,] matrix2 =
+            //{
+            //    { 1, 2, 3 },
+            //    { 4, 5, 8 }
+            //};
 
-            int[][] arrOfArr = new int[10][];
+            //int[][] arrOfArr = new int[10][];
 
-            int[][] arrOfArr2 =
-            {
-                new int[] { 1, 2, 3},
-                new int[] {1,2,3,4,5,6,7}
-            };
+            //int[][] arrOfArr2 =
+            //{
+            //    new int[] { 1, 2, 3},
+            //    new int[] {1,2,3,4,5,6,7}
+            //};
 
-            Console.WriteLine(arr2 is Array ? "ARRAY" : "NOT ARRAY");
+            //Console.WriteLine(arr2 is Array ? "ARRAY" : "NOT ARRAY");
 
-            int a = 2, b = 6;
-            MyClass.Swap(ref a, ref b);
+            //int a = 2, b = 6;
+            //MyClass.Swap(ref a, ref b);
 
-            obj1.F1 = int.TryParse(Console.ReadLine(), out int parcelId) ? parcelId : 0;
-            obj1.F1 = int.TryParse(Console.ReadLine(), out int id) ? id : 0;
+            //obj1.F1 = int.TryParse(Console.ReadLine(), out int parcelId) ? parcelId : 0;
+            //obj1.F1 = int.TryParse(Console.ReadLine(), out int id) ? id : 0;
 
-            MyStruct str2;
-            str2 = new() { F1 = 8 };
-            Console.WriteLine(str2);
+            //MyStruct str2;
+            //str2 = new() { F1 = 8 };
+            //Console.WriteLine(str2);
 
-            Func2(ref a, out int c);
-            Console.WriteLine(c);
+            //Func2(ref a, out int c);
+            //Console.WriteLine(c);
 
-            Console.WriteLine(sum(1, 2, 3));
+            //Console.WriteLine(sum(1, 2, 3));
 
-            stam(p2: "Yossi", p1: 9, p3: 9.5);
+            //stam(p2: "Yossi", p1: 9, p3: 9.5);
 
-            double choice = 5;
-            switch (choice)
-            {
-                case 2:
-                    break;
-                case > 3.1:
-                    break;
-            }
+            //double choice = 5;
+            //switch (choice)
+            //{
+            //    case 2:
+            //        break;
+            //    case > 3.1:
+            //        break;
+            //}
 
-            int? xNullable = 7;
-            int y = 23;
-            object yBoxed = y;
-            if (xNullable is int nn1 && yBoxed is int nn2)
-            {
-                Console.WriteLine(nn1 + nn2);  // output: 30
-            }
+            //int? xNullable = 7;
+            //int y = 23;
+            //object yBoxed = y;
+            //if (xNullable is int nn1 && yBoxed is int nn2)
+            //{
+            //    Console.WriteLine(nn1 + nn2);  // output: 30
+            //}
 
-            int[] array = new int[100];
+            //int[] array = new int[100];
 
-            var it1 = array.GetEnumerator();
-            while(it1.MoveNext())
-            {
-                Console.WriteLine((int)it1.Current);
-            }
+            //var it1 = array.GetEnumerator();
+            //while (it1.MoveNext())
+            //{
+            //    Console.WriteLine((int)it1.Current);
+            //}
 
-            foreach (var n in array)
-            {
-                Console.WriteLine(n);
-            }
+            //foreach (var n in array)
+            //{
+            //    Console.WriteLine(n);
+            //}
 
-            var it2 = list.GetEnumerator();
-            while (it2.MoveNext())
-            {
-                Console.WriteLine((int)it2.Current);
-            }
+            //var it2 = list.GetEnumerator();
+            //while (it2.MoveNext())
+            //{
+            //    Console.WriteLine((int)it2.Current);
+            //}
 
-            foreach (var n in list)
-            {
-                Console.WriteLine(n);
-            }
+            //foreach (var n in list)
+            //{
+            //    Console.WriteLine(n);
+            //}
 
             int index = -1;
-            for (int i = 0; i < list.Count; i++)
-            {
-                if (list[i] == 10)
-                    index = i;
-            }
+            //for (int i = 0; i < list.Count; i++)
+            //{
+            //    if (list[i] == 10)
+            //        index = i;
+            //}
 
+            //index = list.FindIndex(n => n == 10);
+
+            Student[] aa = new Student[100];
+            List<Student> Students = new();
+            Students.Add(new() { Id = 312345678, Status = StudenStatus.Student });
+            Students.Add(new() { Id = 301234567, Status = StudenStatus.Frozen });
+            Students.Add(new() { Id = 234567890, Status = StudenStatus.Candidate });
+            Students.Add(new() { Id = 210987654, Status = StudenStatus.Graduate });
+
+            Console.Write("Enter sudent's id: ");
+            int.TryParse(Console.ReadLine(), out int id);
+            for (int i = 0; i < Students.Count; i++)
+            {
+                if (Students[i].Id == id)
+                {
+                    Student s = Students[i];
+                    s.Status = StudenStatus.Graduate;
+                    Students[i] = s;
+                    Students.Remove(s);
+                    break;
+                }
+            }
+            foreach(var item in Students)
+                Console.WriteLine(item);
         }
 
+        //static class Tools
+        //{
+        //    internal ref T at<T>(this List<T> list, int index)
+        //    {
+        //        return ref list._items[index];
+        //    }
+        //}
+
         static List<int> list = new();
+
+
 
         static void stam(int p1, string p2, double p3) { }
 
@@ -173,7 +208,6 @@ namespace Lesson2
 
             }
 
-
             public int F2 { get; private set; } = 10;
 
             public static void Swap(ref int number1, ref int number2)
@@ -193,12 +227,36 @@ namespace Lesson2
             public MyClass() { }
         }
 
-        struct MyStruct
+
+        enum StudenStatus { Candidate, Student, Graduate, Frozen }
+        struct Student
         {
             internal int F1 { get; set; }
+            public int Id { get; set; }
+            public StudenStatus Status { get; set; }
 
-            public MyStruct(int parm) => F1 = parm;
+            public Student(int parm)
+            {
+                F1 = parm;
+                Id = 0;
+                Status = StudenStatus.Candidate;
+            }
 
+            public override string ToString()
+            {
+                return $"Student {{ Id={Id}, Status={Status} }}";
+            }
+
+            public override bool Equals(object obj)
+            {
+                Console.WriteLine(nameof(Equals));
+                return Id == ((Student)obj).Id;
+            }
+
+            public override int GetHashCode()
+            {
+                return (Id / 10) % 10000;
+            }
             //public MyStruct() { }
         }
 
