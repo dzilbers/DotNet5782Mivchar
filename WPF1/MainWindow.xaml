@@ -6,8 +6,21 @@
         xmlns:local="clr-namespace:WPF1"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Button Content="Cancel" HorizontalAlignment="Left" Margin="501,278,0,0" VerticalAlignment="Top" Height="82" Width="187" FontSize="36" FontWeight="Bold" Background="#FFA0D0DE"/>
+    <Grid x:Name="MyGrid">
+        <Button x:Name="BtnOK" Content="OK" HorizontalAlignment="Left" Height="91" Margin="138,278,0,0" VerticalAlignment="Top" Width="262" FontSize="36" Click="BtnOK_Click" MouseDoubleClick="BtnOK_MouseDoubleClick" IsEnabled="False"/>
+        <Button x:Name="BtnCancel" Content="Cancel" HorizontalAlignment="Left" Margin="501,278,0,0" VerticalAlignment="Top" Height="117" Width="236" FontSize="36" FontWeight="Bold" Background="#FFA0D0DE" MouseMove="BtnCancel_MouseMove"/>
+        <CheckBox x:Name="ChkBoxApprove" Content="Approved" HorizontalAlignment="Left" Margin="531,170,0,0" VerticalAlignment="Top" FontSize="36" Checked="ChkBoxApprove_Checked" Unchecked="ChkBoxApprove_Unchecked"/>
+        <ListBox HorizontalAlignment="Left" Height="160" Margin="54,33,0,0" VerticalAlignment="Top" Width="250" SelectionMode="Multiple">
+            <ListBox.Items>
+                <ListBoxItem Content="Item 1" FontSize="24" />
+                <ListBoxItem Content="Item 2" FontSize="24" />
+                <ListBoxItem Content="Item 3" FontSize="24" />
+                <ListBoxItem Content="Item 4" FontSize="24" />
+                <ListBoxItem Content="Item 5" FontSize="24" />
+                <ListBoxItem Content="Item 6" FontSize="24" />
+                <ListBoxItem Content="Item 7" FontSize="24" />
+            </ListBox.Items>
+        </ListBox>
 
     </Grid>
 </Window>
