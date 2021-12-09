@@ -3,10 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfBinding1"
+        xmlns:me="clr-namespace:WpfBinding1"
         xmlns:sys="clr-namespace:System;assembly=mscorlib" 
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}">
     <Window.Resources>
         <LinearGradientBrush x:Key="myLinGradBrush" MappingMode="RelativeToBoundingBox">
             <GradientStop Color="Blue" Offset="0"/>
@@ -14,9 +15,12 @@
             <GradientStop Color="Red" Offset="1"/>
         </LinearGradientBrush>
         <sys:String x:Key="btnContent">Next</sys:String>
+        <me:Items x:Key="items" />
     </Window.Resources>
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="50,29,0,0" TextWrapping="Wrap"
+        <Rectangle Fill="Red" Stroke="Black" Margin="250,30,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"
+                    Height="100" Width="{Binding RelativeSource={RelativeSource Self}, Path=Height}"/>
+        <TextBlock HorizontalAlignment="Left" Margin="50,30,0,0" TextWrapping="Wrap"
                    VerticalAlignment="Top" Background="{StaticResource myLinGradBrush}">
             License Agreement<LineBreak></LineBreak>
             Any commercial use is forbidden
@@ -25,12 +29,89 @@
                 IsEnabled="{Binding ElementName=ChkApproved, Path=IsChecked}"
                 FontSize="20" FontWeight="Bold" Background="{StaticResource myLinGradBrush}"
                 Click="Button_Click"/>
-        <Button x:Name="btnNext2" Content="{Binding ElementName=txtBox, Path=Text, Mode=TwoWay}" HorizontalAlignment="Left" Margin="652,319,0,0" VerticalAlignment="Top"
+        <Button x:Name="btnNext2" Content="{Binding ElementName=txtBox, Path=Text, Mode=TwoWay}" HorizontalAlignment="Left" Margin="650,350,0,0" VerticalAlignment="Top"
                 IsEnabled="{Binding ElementName=ChkApproved, Path=IsChecked}"
                 FontSize="20" FontWeight="Bold" Background="{DynamicResource myLinGradBrush}" Click="btnNext2_Click"/>
         <CheckBox Name="ChkApproved" Content="I approve the license agreement"
                   HorizontalAlignment="Left" Margin="61,331,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="txtBox" HorizontalAlignment="Left" Margin="495,189,0,0"
+        <TextBox Name="txtBox" HorizontalAlignment="Left" Margin="650,330,0,0"
                  TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="Next2"/>
+        <Canvas Name="Parent0" HorizontalAlignment="Center">
+            <Border Name="Parent1"
+                 Width="{Binding RelativeSource={RelativeSource Self},
+                 Path=Parent.ActualWidth}"
+                 Height="{Binding RelativeSource={RelativeSource Self},
+                 Path=Parent.ActualHeight}">
+                <Canvas Name="Parent2">
+                    <Border Name="Parent3" 
+                            Width="{Binding RelativeSource={RelativeSource Self}, Path=Parent.ActualWidth}"
+                            Height="{Binding RelativeSource={RelativeSource Self}, Path=Parent.ActualHeight}">
+                        <Canvas Name="Parent4">
+                            <TextBlock FontSize="16" Margin="5" Text="Display the name of the ancestor"/>
+                            <TextBlock FontSize="16" Margin="50" Width="200"
+                                       Text="{Binding RelativeSource={RelativeSource  FindAncestor,
+                                                                                      AncestorType={x:Type Border},
+                                                                                      AncestorLevel=2}, Path=Name}"/>
+                        </Canvas>
+                    </Border>
+                </Canvas>
+            </Border>
+        </Canvas>
+        <Canvas Name="Parent10">
+            <Button Margin="50" Height="0" Canvas.Left="0" Canvas.Top="0" Width="0" Background="Beige">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Canvas RenderTransformOrigin="0.5,0.5">
+                            <Canvas.RenderTransform>
+                                <RotateTransform Angle="20"/>
+                            </Canvas.RenderTransform>
+                            <Ellipse Height="100" Width="150" 
+                                     Fill="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Background}"/>
+                            <ContentPresenter Margin="35"
+                                              Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Content}"/>
+                        </Canvas>
+                    </ControlTemplate>
+                </Button.Template>
+                <TextBlock FontSize="22">Click me</TextBlock>
+            </Button>
+        </Canvas>
+        <Canvas DataContext="{StaticResource items}" HorizontalAlignment="Left" Margin="65,180" Width="120" Height="145">
+            <ItemsControl ItemsSource="{Binding}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock FontSize="14" FontWeight="Bold" 
+                                       Text="{Binding RelativeSource={RelativeSource PreviousData}, Path=Value}">
+                                <TextBlock.RenderTransform>
+                                    <ScaleTransform ScaleY="-1"/>
+                                </TextBlock.RenderTransform>
+                            </TextBlock>
+                            <Border CornerRadius="20" BorderThickness="2" Width="55" Height="{Binding Value}"
+                                    Margin="0,0,5,0" BorderBrush="Violet" Background="BlueViolet">
+                                <TextBlock Text="{Binding Value}" FontWeight="Bold" Foreground="Wheat"
+                                           VerticalAlignment="Center" HorizontalAlignment="Center">
+                                    <TextBlock.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleY="-1"/>
+                                        </TransformGroup>
+                                    </TextBlock.RenderTransform>
+                                </TextBlock>
+                            </Border>
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+                <ItemsControl.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="-1"/>
+                        <TranslateTransform Y="135"/>
+                    </TransformGroup>
+                </ItemsControl.RenderTransform>
+            </ItemsControl>
+        </Canvas>
     </Grid>
 </Window>

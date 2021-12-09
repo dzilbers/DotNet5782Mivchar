@@ -23,11 +23,7 @@ namespace WpfBinding1
     {
         public static string MyName { get; set; } = "Next1";
 
-        public MainWindow()
-        {
-            InitializeComponent();
-            DataContext = this; // drone;
-        }
+        public MainWindow() => InitializeComponent();
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
