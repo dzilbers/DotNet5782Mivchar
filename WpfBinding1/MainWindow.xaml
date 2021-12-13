@@ -15,7 +15,28 @@
             <GradientStop Color="Red" Offset="1"/>
         </LinearGradientBrush>
         <sys:String x:Key="btnContent">Next</sys:String>
+        <ControlTemplate x:Key="btnEllipse">
+            <Canvas RenderTransformOrigin="0.5,0.5">
+                <Canvas.RenderTransform>
+                    <TransformGroup>
+                        <SkewTransform AngleX="40"/>
+                        <RotateTransform Angle="20"/>
+                        <TranslateTransform X="20"/>
+                    </TransformGroup>
+                </Canvas.RenderTransform>
+                <Ellipse Height="80" Width="120" 
+                         Fill="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Background}"/>
+                <ContentPresenter Margin="21" Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Content}"/>
+            </Canvas>
+        </ControlTemplate>
         <me:Items x:Key="items" />
+        <Style x:Key="style1" TargetType="Button">
+            <Setter Property="BorderThickness" Value="5"/>
+            <Setter Property="BorderBrush" Value="Red"/>
+        </Style>
+        <Style BasedOn="{StaticResource style1}"  TargetType="Button">
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
     </Window.Resources>
     <Grid>
         <Rectangle Fill="Red" Stroke="Black" Margin="250,30,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"
@@ -33,7 +54,8 @@
                 IsEnabled="{Binding ElementName=ChkApproved, Path=IsChecked}"
                 FontSize="20" FontWeight="Bold" Background="{DynamicResource myLinGradBrush}" Click="btnNext2_Click"/>
         <CheckBox Name="ChkApproved" Content="I approve the license agreement"
-                  HorizontalAlignment="Left" Margin="61,331,0,0" VerticalAlignment="Top"/>
+                  HorizontalAlignment="Left" Margin="61,331,0,0" VerticalAlignment="Top"
+                  IsChecked="true"/>
         <TextBox Name="txtBox" HorizontalAlignment="Left" Margin="650,330,0,0"
                  TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="Next2"/>
         <Canvas Name="Parent0" HorizontalAlignment="Center">
@@ -50,7 +72,7 @@
                             <TextBlock FontSize="16" Margin="5" Text="Display the name of the ancestor"/>
                             <TextBlock FontSize="16" Margin="50" Width="200"
                                        Text="{Binding RelativeSource={RelativeSource  FindAncestor,
-                                                                                      AncestorType={x:Type Border},
+                                                                                      AncestorType={x:Type Canvas},
                                                                                       AncestorLevel=2}, Path=Name}"/>
                         </Canvas>
                     </Border>
@@ -58,22 +80,8 @@
             </Border>
         </Canvas>
         <Canvas Name="Parent10">
-            <Button Margin="50" Height="0" Canvas.Left="0" Canvas.Top="0" Width="0" Background="Beige">
-                <Button.Template>
-                    <ControlTemplate>
-                        <Canvas RenderTransformOrigin="0.5,0.5">
-                            <Canvas.RenderTransform>
-                                <RotateTransform Angle="20"/>
-                            </Canvas.RenderTransform>
-                            <Ellipse Height="100" Width="150" 
-                                     Fill="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Background}"/>
-                            <ContentPresenter Margin="35"
-                                              Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Content}"/>
-                        </Canvas>
-                    </ControlTemplate>
-                </Button.Template>
-                <TextBlock FontSize="22">Click me</TextBlock>
-            </Button>
+            <Button Margin="50" Height="0" Canvas.Left="0" Canvas.Top="0" Width="0" Background="Beige" FontSize="22" Content="Click me"
+                    Template="{Binding Source={StaticResource btnEllipse}}"/>
         </Canvas>
         <Canvas DataContext="{StaticResource items}" HorizontalAlignment="Left" Margin="65,180" Width="120" Height="145">
             <ItemsControl ItemsSource="{Binding}">
