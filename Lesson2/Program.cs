@@ -110,7 +110,7 @@ namespace Lesson2
             //    Console.WriteLine(n);
             //}
 
-            int index = -1;
+            //int index = -1;
             //for (int i = 0; i < list.Count; i++)
             //{
             //    if (list[i] == 10)

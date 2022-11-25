@@ -27,7 +27,7 @@ namespace Attributes
             Person p1 = new() { Id = 1234, Name = "Avi Man" };
             Console.WriteLine(p1);
             
-            p1.func();
+            //p1.func();
 
         }
     }

@@ -6,7 +6,7 @@ catch (ArgumentNullException)
 {
     Console.WriteLine("Catch ArgumentNullException");
 }
-catch (FormatException ex)
+catch (FormatException)
 {
         Console.WriteLine("Catch FormatException");
 }

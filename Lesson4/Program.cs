@@ -28,7 +28,7 @@ namespace Lesson4
             //DateTime.Now.ToStringProperty();
 
             DateTime? date = null;
-            if (date == null) ;
+            //if (date == null) ;
             DateTime date3 = (DateTime)(date ?? DateTime.Now);
 
             MyDelegate myDel = null;
