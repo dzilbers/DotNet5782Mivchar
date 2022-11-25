@@ -27,6 +27,10 @@ namespace Lesson4
             //Console.WriteLine("-----------------------------------");
             //DateTime.Now.ToStringProperty();
 
+            DateTime? date = null;
+            if (date == null) ;
+            DateTime date3 = (DateTime)(date ?? DateTime.Now);
+
             MyDelegate myDel = null;
             //Console.WriteLine(myDel(3, "abc"));
             Console.WriteLine(myDel?.Invoke(3, "abc"));

@@ -9,6 +9,8 @@ namespace Printer
             Printer printer = new();
             User u1 = new User(printer);
             User u2 = new User(printer);
+            UserLiar u3 = new UserLiar(printer);
+            User u4 = new User(printer);
             //printer.PageOver();
             Console.WriteLine("Please enter pages to print:");
             int x = int.Parse(Console.ReadLine());

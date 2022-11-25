@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31702.278
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33103.184
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson1", "Lesson1\Lesson1.csproj", "{CE05F99B-05ED-4B3F-B219-45B988F1AD22}"
 EndProject
@@ -15,9 +15,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Printer", "Printer\Printer.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPF1", "WPF1\WPF1.csproj", "{A4994790-3FD4-4814-8193-148AC44E95AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LINQ", "LINQ\LINQ.csproj", "{2C967346-775E-4E6C-BA91-7BC2E00AFBC9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LINQ", "LINQ\LINQ.csproj", "{2C967346-775E-4E6C-BA91-7BC2E00AFBC9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfBinding1", "WpfBinding1\WpfBinding1.csproj", "{2CE019F0-2559-49F6-BFFA-3477E17B5CAF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfBinding1", "WpfBinding1\WpfBinding1.csproj", "{2CE019F0-2559-49F6-BFFA-3477E17B5CAF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Attributes", "Attributes\Attributes.csproj", "{F5B4F877-6E0C-4959-9E51-A868758DD674}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exceptions", "Exceptions\Exceptions.csproj", "{FA9544F6-9A7D-4E20-A92B-4A8690B3ABC4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PL", "PL\PL.csproj", "{151190C4-0DC0-4F4A-815A-4EAAFF228DE4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +63,18 @@ Global
 		{2CE019F0-2559-49F6-BFFA-3477E17B5CAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CE019F0-2559-49F6-BFFA-3477E17B5CAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CE019F0-2559-49F6-BFFA-3477E17B5CAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5B4F877-6E0C-4959-9E51-A868758DD674}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5B4F877-6E0C-4959-9E51-A868758DD674}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5B4F877-6E0C-4959-9E51-A868758DD674}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5B4F877-6E0C-4959-9E51-A868758DD674}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA9544F6-9A7D-4E20-A92B-4A8690B3ABC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA9544F6-9A7D-4E20-A92B-4A8690B3ABC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA9544F6-9A7D-4E20-A92B-4A8690B3ABC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA9544F6-9A7D-4E20-A92B-4A8690B3ABC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{151190C4-0DC0-4F4A-815A-4EAAFF228DE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{151190C4-0DC0-4F4A-815A-4EAAFF228DE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{151190C4-0DC0-4F4A-815A-4EAAFF228DE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{151190C4-0DC0-4F4A-815A-4EAAFF228DE4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -15,13 +15,14 @@ namespace Printer
             myPrinter = printer;
             printer.PageOver += Printer_PageOver;
         }
+
         ~User() => myPrinter.PageOver -= Printer_PageOver;
 
         private void Printer_PageOver(object sender, PrinterEventArgs args)
         {
             //PrinterEventArgs pArgs = args as PrinterEventArgs;
             if (args.Status) return;
-            if (rand.NextDouble() > 0.2) return;
+            if (rand.NextDouble() > 0.5) return;
             args.Status = true;
             Console.WriteLine("I am going to bring the paper!!!");
         }

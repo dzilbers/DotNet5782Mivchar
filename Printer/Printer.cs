@@ -12,17 +12,18 @@ namespace Printer
         internal event EventHandler<PrinterEventArgs> PageOver = null;
         private int pageCount = 20;
 
-        private void handlePageOver() => PageOver?.Invoke(this, new PrinterEventArgs());
+        private void handlePageOver(bool real) => PageOver?.Invoke(this, new PrinterEventArgs(real));
 
         public void Print(int pages)
         {
             if (pages <= pageCount) pageCount -= pages;
-            else { pageCount = 0; handlePageOver(); }
+            else { pageCount = 0; handlePageOver(false); }
         }
     }
 
     internal class PrinterEventArgs : EventArgs
     {
         public bool Status = false;
+        public PrinterEventArgs(bool status) => Status = status;
     }
 }
